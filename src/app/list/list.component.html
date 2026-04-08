@@ -1,3 +1,18 @@
 <div class="wrapper">
-    <p>List works...</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Job</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dev of developers">
+                <td>{{ dev.name }}</td>
+                <td>{{ dev.job }}</td>
+                <td>{{ dev.getFormattedSalary() }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
