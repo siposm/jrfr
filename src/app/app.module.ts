@@ -10,6 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { DeleteComponent } from './delete/delete.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DeleteComponent } from './delete/delete.component';
     ListComponent,
     HomepageComponent,
     CreateComponent,
-    DeleteComponent
+    DeleteComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
