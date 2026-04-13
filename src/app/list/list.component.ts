@@ -10,7 +10,12 @@ export class ListComponent {
   developers: Developer[] = []
 
   constructor() {
-    this.seed()
+    this.read()
+  }
+
+  read(): void {
+    let jsonArray = JSON.parse(localStorage.getItem("dev_DB") ?? "[]")
+    this.developers = Object.values(jsonArray).map(x => Object.assign(new Developer(), x))
   }
 
   seed(): void {
