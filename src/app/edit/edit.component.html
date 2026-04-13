@@ -1,1 +1,15 @@
-<p>edit works!</p>
+<h4>Edit developer</h4>
+<select [(ngModel)]="developer">
+    <option [ngValue]="dev" *ngFor="let dev of developers">{{ dev.name }}</option>
+</select>
+
+<br>
+
+<div *ngIf="developer.name !== ''">
+    <hr>
+    <input [(ngModel)]="developer.id" disabled placeholder="Id..." type="text"><br>
+    <input [(ngModel)]="developer.name" placeholder="Name..." type="text"><br>
+    <input [(ngModel)]="developer.job" placeholder="Job..." type="text"><br>
+    <input [(ngModel)]="developer.salary" placeholder="Salary..." type="number"><br>
+    <button (click)="update()">Update developer</button>
+</div>

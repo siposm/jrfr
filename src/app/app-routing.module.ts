@@ -4,6 +4,7 @@ import { ListComponent } from './list/list.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CreateComponent } from './create/create.component';
 import { DeleteComponent } from './delete/delete.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: "homepage", component: HomepageComponent },
   { path: "create", component: CreateComponent },
   { path: "delete", component: DeleteComponent },
+  { path: "edit", component: EditComponent },
   { path: "**", redirectTo: "homepage", pathMatch: "full" },
 ];
 
