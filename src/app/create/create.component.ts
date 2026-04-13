@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Developer } from '../developer';
 
 @Component({
   selector: 'app-create',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './create.component.css'
 })
 export class CreateComponent {
+  developer: Developer = new Developer()
 
+  create(): void {
+    console.log(this.developer)
+  }
 }

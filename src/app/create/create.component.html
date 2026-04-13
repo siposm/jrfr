@@ -1,1 +1,5 @@
-<p>create works!</p>
+<h4>Create developer</h4>
+<input [(ngModel)]="developer.name" placeholder="Name..." type="text"><br>
+<input [(ngModel)]="developer.job" placeholder="Job..." type="text"><br>
+<input [(ngModel)]="developer.salary" placeholder="Salary..." type="number"><br>
+<button (click)="create()">Add developer</button>
