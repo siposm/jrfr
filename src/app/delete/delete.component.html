@@ -1,1 +1,6 @@
-<p>delete works!</p>
+<h4>Delete developer</h4>
+<select [(ngModel)]="developer">
+    <option [ngValue]="dev" *ngFor="let dev of developers">{{ dev.name }}</option>
+</select>
+<br>
+<button (click)="delete()">Delete developer</button>
