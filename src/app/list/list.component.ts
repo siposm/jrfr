@@ -13,17 +13,6 @@ export class ListComponent {
     this.seed()
   }
 
-  // getFormattedSalary(salary: number): string {
-  //   let out = ""
-  //   for (let i = 0; i < salary.toString().length; i++) {
-  //     out += salary.toString()[i]
-  //     if (i == 2) {
-  //       out += " "
-  //     }
-  //   }
-  //   return out + " HUF"
-  // }
-
   seed(): void {
     let d = new Developer()
     d.name = "Gipsz Jakab"
