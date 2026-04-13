@@ -11,6 +11,7 @@ import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
+import { Edit2Component } from './edit2/edit2.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditComponent } from './edit/edit.component';
     HomepageComponent,
     CreateComponent,
     DeleteComponent,
-    EditComponent
+    EditComponent,
+    Edit2Component
   ],
   imports: [
     BrowserModule,
