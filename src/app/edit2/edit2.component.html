@@ -1,6 +1,6 @@
 <h4>Edit2 developer</h4>
-<input [(ngModel)]="developer.id" disabled placeholder="Id..." type="text"><br>
-<input [(ngModel)]="developer.name" placeholder="Name..." type="text"><br>
-<input [(ngModel)]="developer.job" placeholder="Job..." type="text"><br>
-<input [(ngModel)]="developer.salary" placeholder="Salary..." type="number"><br>
-<button (click)="update()">Update developer</button>
+<input class="form-control mb-2" [(ngModel)]="developer.id" disabled placeholder="Id..." type="text">
+<input class="form-control mb-2" [(ngModel)]="developer.name" placeholder="Name..." type="text">
+<input class="form-control mb-2" [(ngModel)]="developer.job" placeholder="Job..." type="text">
+<input class="form-control mb-2" [(ngModel)]="developer.salary" placeholder="Salary..." type="number">
+<button class="btn btn-sm btn-warning" (click)="update()">Update developer</button>

@@ -1,15 +1,13 @@
 <h4>Edit developer</h4>
-<select [(ngModel)]="developer">
+<select [(ngModel)]="developer" class="form-select mb-2">
     <option [ngValue]="dev" *ngFor="let dev of developers">{{ dev.name }}</option>
 </select>
 
-<br>
-
 <div *ngIf="developer.name !== ''">
     <hr>
-    <input [(ngModel)]="developer.id" disabled placeholder="Id..." type="text"><br>
-    <input [(ngModel)]="developer.name" placeholder="Name..." type="text"><br>
-    <input [(ngModel)]="developer.job" placeholder="Job..." type="text"><br>
-    <input [(ngModel)]="developer.salary" placeholder="Salary..." type="number"><br>
-    <button (click)="update()">Update developer</button>
+    <input class="form-control mb-2" [(ngModel)]="developer.id" disabled placeholder="Id..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developer.name" placeholder="Name..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developer.job" placeholder="Job..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developer.salary" placeholder="Salary..." type="number">
+    <button class="btn btn-sm btn-warning" (click)="update()">Update developer</button>
 </div>

@@ -1,28 +1,27 @@
-<div class="wrapper">
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Salary</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let dev of developers">
-                <td>
-                    <a routerLink="/edit2/{{dev.id}}">
-                        {{ dev.getShortId() }}
-                    </a>
-                </td>
-                <td>{{ dev.name }}</td>
-                <td>{{ dev.job }}</td>
-                <td>{{ dev.getFormattedSalary() }}</td>
-                <td>
-                    <a routerLink="/edit2/{{dev.id}}">Edit</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<h4>List developers</h4>
+<table class="table table-sm table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dev of developers">
+            <td>
+                <a routerLink="/edit2/{{dev.id}}">
+                    {{ dev.getShortId() }}
+                </a>
+            </td>
+            <td>{{ dev.name }}</td>
+            <td>{{ dev.job }}</td>
+            <td>{{ dev.getFormattedSalary() }}</td>
+            <td>
+                <a routerLink="/edit2/{{dev.id}}">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
