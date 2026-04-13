@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListComponent } from './list/list.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     NavComponent,
     FooterComponent,
     ListComponent,
-    HomepageComponent
+    HomepageComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
