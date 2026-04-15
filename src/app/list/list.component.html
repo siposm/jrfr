@@ -12,6 +12,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Job</th>
+            <th>Age</th>
             <th>Salary</th>
             <th>Actions</th>
         </tr>
@@ -21,6 +22,7 @@
             <td (click)="alertId(dev)">{{ dev.getShortId() }}</td>
             <td>{{ dev.name }}</td>
             <td>{{ dev.job }}</td>
+            <td>{{ dev.age }}</td>
             <td>{{ dev.getFormattedSalary() }}</td>
             <td>
                 <a routerLink="/edit2/{{dev.id}}">Edit</a>

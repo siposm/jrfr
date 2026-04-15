@@ -15,6 +15,7 @@ export class CreateComponent {
   buttonDisabled(): boolean {
     if(this.developer.name.length < 5) return true
     if(this.developer.job.length < 5) return true
+    if(this.developer.age! < 18) return true
     if(this.developer.salary! < 50000) return true
     return false
   }
