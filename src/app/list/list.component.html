@@ -14,16 +14,18 @@
             <th>Job</th>
             <th>Age</th>
             <th>Salary</th>
+            <th>Skills</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let dev of developers">
-            <td (click)="alertId(dev)">{{ dev.getShortId() }}</td>
+            <td (click)="alertId(dev)" class="ps-3">{{ dev.getShortId() }}</td>
             <td>{{ dev.name }}</td>
             <td>{{ dev.job }}</td>
             <td>{{ dev.age }}</td>
             <td>{{ dev.getFormattedSalary() }}</td>
+            <td>{{ dev.getSkillsFormatted() }}</td>
             <td>
                 <a routerLink="/edit2/{{dev.id}}">Edit</a>
             </td>
