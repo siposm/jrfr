@@ -3,4 +3,4 @@
 <input class="form-control mb-2" [(ngModel)]="developer.name" placeholder="Name..." type="text">
 <input class="form-control mb-2" [(ngModel)]="developer.job" placeholder="Job..." type="text">
 <input class="form-control mb-2" [(ngModel)]="developer.salary" placeholder="Salary..." type="number">
-<button class="btn btn-sm btn-success" (click)="create()">Add developer</button>
+<button class="btn btn-sm btn-success" (click)="create()" [disabled]="buttonDisabled()">Add developer</button>

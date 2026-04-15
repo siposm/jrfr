@@ -12,6 +12,13 @@ export class CreateComponent {
 
   constructor(private router: Router) { }
 
+  buttonDisabled(): boolean {
+    if(this.developer.name.length < 5) return true
+    if(this.developer.job.length < 5) return true
+    if(this.developer.salary! < 50000) return true
+    return false
+  }
+
   create(): void {
     // load - betöltés
     let jsonArray = JSON.parse(localStorage.getItem("dev_DB") ?? "[]")
