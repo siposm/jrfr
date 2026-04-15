@@ -8,9 +8,17 @@ import { Developer } from '../developer';
 })
 export class ListComponent {
   developers: Developer[] = []
+  devId: string = ""
 
   constructor() {
     this.read()
+  }
+
+  alertId(developer: Developer): void {
+    this.devId = developer.id
+    setTimeout(() => {
+      this.devId = ""
+    }, 5000)
   }
 
   read(): void {

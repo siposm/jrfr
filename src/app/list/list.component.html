@@ -1,4 +1,11 @@
 <h4>List developers</h4>
+
+<div class="custom-overlay alert alert-warning" role="alert" *ngIf="devId !== ''">
+    DEVELOPER ID:
+    <br>
+    {{ devId }}
+</div>
+
 <table class="table table-sm table-striped table-hover">
     <thead>
         <tr>
@@ -11,11 +18,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let dev of developers">
-            <td>
-                <a routerLink="/edit2/{{dev.id}}">
-                    {{ dev.getShortId() }}
-                </a>
-            </td>
+            <td (click)="alertId(dev)">{{ dev.getShortId() }}</td>
             <td>{{ dev.name }}</td>
             <td>{{ dev.job }}</td>
             <td>{{ dev.getFormattedSalary() }}</td>
