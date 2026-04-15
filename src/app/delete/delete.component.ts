@@ -13,6 +13,8 @@ export class DeleteComponent {
 
   constructor(private router: Router) {
     this.read()
+    this.developer.name = "Select..."
+    this.developers.unshift(this.developer)
   }
 
   read(): void {

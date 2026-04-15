@@ -1,5 +1,13 @@
 <h4>Delete developer</h4>
 <select [(ngModel)]="developer" class="form-select mb-2">
-    <option [ngValue]="dev" *ngFor="let dev of developers">{{ dev.name }}</option>
+    <option
+        [ngValue]="dev"
+        [disabled]="dev.name.includes('Select')"
+        *ngFor="let dev of developers"
+    >
+        {{ dev.name }}
+    </option>
 </select>
-<button class="btn btn-sm btn-danger" (click)="delete()">Delete developer</button>
+<button class="btn btn-sm btn-danger" (click)="delete()" [disabled]="developer.name.includes('Select')">
+    Delete developer
+</button>
