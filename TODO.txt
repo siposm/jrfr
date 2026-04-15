@@ -1,0 +1,26 @@
+TODO
+
+- create salary fix "0"
+- delete select fix "select..."
+- create inputmezők ellenőrzése
+
+----
+
+- alert ID: megjelenítés popup ablakban
+
+----
+
+- developer class bővítése (age, skill stb)
+
+----
+
+- statisztikák létrehozása
+  - átlagos fizetés
+  - legidősebb fejlesztő
+  - legtöbbet kereső
+  - legkevesebbet kereső
+  - legtöbb mindenhez értő
+
+----
+
+- service kiszervezés, refaktorálás
