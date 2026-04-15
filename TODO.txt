@@ -23,4 +23,8 @@ TODO
 
 ----
 
+- átlagos kereset alatt/felett megjelölni a fejlesztőket
+
+- stat komp
 - service kiszervezés, refaktorálás
+- curr pipe

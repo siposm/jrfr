@@ -1,14 +1,27 @@
-<h4>List developers</h4>
-
 <div class="custom-overlay alert alert-warning" role="alert" *ngIf="devId !== ''">
     DEVELOPER ID:
     <br>
     {{ devId }}
 </div>
 
+<div class="alert alert-info">
+    <h5>Statistics</h5>
+    <hr>
+    <ul>
+        <li>Average salary: <strong>{{ averageSalary() }} HUF</strong></li>
+        <li>Oldest developer: <strong>{{ oldestDeveloper().name }}</strong></li>
+        <li>Highest earning developer: <strong>{{ highestEarning().name }}</strong></li>
+        <li>Lowest earning developer: <strong>{{ lowestEarning().name }}</strong></li>
+        <li>Most skilled developer: <strong>{{ mostSkilled().name }}</strong></li>
+    </ul>
+</div>
+
+<h4>List developers</h4>
+
 <table class="table table-sm table-striped table-hover">
     <thead>
         <tr>
+            <th>#</th>
             <th>Id</th>
             <th>Name</th>
             <th>Job</th>
@@ -19,13 +32,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dev of developers">
+        <tr *ngFor="let dev of developers; index as i">
+            <td>
+                <span class="badge rounded-pill" [ngClass]="dev.salary! > avgSalary ? 'bg-success' : 'bg-danger'">
+                    {{ i+1 }}
+                </span>
+            </td>
             <td (click)="alertId(dev)" class="ps-3">{{ dev.getShortId() }}</td>
             <td>{{ dev.name }}</td>
             <td>{{ dev.job }}</td>
             <td>{{ dev.age }}</td>
             <td>{{ dev.getFormattedSalary() }}</td>
-            <td>{{ dev.getSkillsFormatted() }}</td>
+            <td>
+                ({{ dev.skills.length }})
+                {{ dev.getSkillsFormatted() }}
+            </td>
             <td>
                 <a routerLink="/edit2/{{dev.id}}">Edit</a>
             </td>
