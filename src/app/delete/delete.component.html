@@ -3,7 +3,7 @@
     <option
         [ngValue]="dev"
         [disabled]="dev.name.includes('Select')"
-        *ngFor="let dev of developers"
+        *ngFor="let dev of service.developers"
     >
         {{ dev.name }}
     </option>

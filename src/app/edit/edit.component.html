@@ -1,6 +1,6 @@
 <h4>Edit developer</h4>
 <select [(ngModel)]="developer" class="form-select mb-2">
-    <option [ngValue]="dev" *ngFor="let dev of developers">{{ dev.name }}</option>
+    <option [ngValue]="dev" *ngFor="let dev of service.developers">{{ dev.name }}</option>
 </select>
 
 <div *ngIf="developer.name !== ''">
