@@ -22,8 +22,7 @@ export class CreateComponent {
   }
 
   create(): void {
-    this.service.developers.push(this.developer)
-    this.service.save()
+    this.service.create(this.developer)
     this.router.navigateByUrl("list")
   }
 }

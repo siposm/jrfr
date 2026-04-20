@@ -14,11 +14,7 @@ export class EditComponent {
   constructor(private router: Router, public service: DeveloperService) { }
 
   update(): void {
-    let idx = this.service.developers.findIndex(x => x.id === this.developer.id)
-    this.service.developers[idx] = this.developer
-
-    this.service.save()
-
+    this.service.update(this.developer)
     this.router.navigateByUrl("list")
   }
 }

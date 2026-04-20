@@ -15,18 +15,14 @@ export class Edit2Component {
     route.params.subscribe(x => {
       let id: string = x['id'] // asszociatív tömb jelölés ["azonosito"] -> 123456
 
-      let result: Developer | undefined = this.service.developers.find(x => x.id === id)
+      let result: Developer | undefined = this.service.getById(id)
       if (result === undefined) this.router.navigateByUrl("list")
       else this.developer = result
     })
   }
 
   update(): void {
-    let idx = this.service.developers.findIndex(x => x.id === this.developer.id)
-    this.service.developers[idx] = this.developer
-
-    this.service.save()
-
+    this.service.update(this.developer)
     this.router.navigateByUrl("list")
   }
 }

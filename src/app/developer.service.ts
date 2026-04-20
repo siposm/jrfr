@@ -13,6 +13,26 @@ export class DeveloperService {
     this.read()
   }
 
+  create(developer: Developer): void {
+    this.developers.push(developer)
+    this.save()
+  }
+
+  delete(developer: Developer): void {
+    this.developers = this.developers.filter(x => x.id !== developer.id)
+    this.save()
+  }
+
+  update(developer: Developer): void {
+    let idx = this.developers.findIndex(x => x.id === developer.id)
+    this.developers[idx] = developer
+    this.save()
+  }
+
+  getById(id: string): Developer | undefined {
+    return this.developers.find(x => x.id === id)
+  }
+
   read(): void {
     let jsonArray = JSON.parse(localStorage.getItem(this.dbString) ?? "[]")
     this.developers = Object.values(jsonArray).map(x => Object.assign(new Developer(), x))

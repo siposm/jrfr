@@ -14,8 +14,7 @@ export class DeleteComponent {
   constructor(private router: Router, public service: DeveloperService) { }
 
   delete(): void {
-    this.service.developers = this.service.developers.filter(x => x.id !== this.developer.id)
-    this.service.save()
+    this.service.delete(this.developer)
     this.router.navigateByUrl("list")
   }
 }
