@@ -17,7 +17,7 @@ export class Edit2Component {
 
       let result: Developer | undefined = this.service.getById(id)
       if (result === undefined) this.router.navigateByUrl("list")
-      else this.developer = result
+      else this.developer = Object.assign(new Developer(), result)
     })
   }
 

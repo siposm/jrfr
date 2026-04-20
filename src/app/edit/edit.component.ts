@@ -10,8 +10,11 @@ import { DeveloperService } from '../developer.service';
 })
 export class EditComponent {
   developer: Developer | null = null
+  developers: Developer[] = []
 
-  constructor(private router: Router, public service: DeveloperService) { }
+  constructor(private router: Router, public service: DeveloperService) {
+    this.developers = service.developers.map(x => Object.assign(new Developer(), x))
+  }
 
   update(): void {
     this.service.update(this.developer!)
