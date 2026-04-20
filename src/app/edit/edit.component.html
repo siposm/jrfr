@@ -1,9 +1,10 @@
 <h4>Edit developer</h4>
 <select [(ngModel)]="developer" class="form-select mb-2">
+    <option [ngValue]="null" disabled selected>Select...</option>
     <option [ngValue]="dev" *ngFor="let dev of service.developers">{{ dev.name }}</option>
 </select>
 
-<div *ngIf="developer.name !== ''">
+<div *ngIf="developer !== null">
     <hr>
     <input class="form-control mb-2" [(ngModel)]="developer.id" disabled placeholder="Id..." type="text">
     <input class="form-control mb-2" [(ngModel)]="developer.name" placeholder="Name..." type="text">

@@ -9,12 +9,12 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './edit.component.css'
 })
 export class EditComponent {
-  developer: Developer = new Developer()
+  developer: Developer | null = null
 
   constructor(private router: Router, public service: DeveloperService) { }
 
   update(): void {
-    this.service.update(this.developer)
+    this.service.update(this.developer!)
     this.router.navigateByUrl("list")
   }
 }

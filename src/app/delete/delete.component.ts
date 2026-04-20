@@ -9,12 +9,12 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './delete.component.css'
 })
 export class DeleteComponent {
-  developer: Developer = new Developer()
+  developer: Developer | null = null
 
   constructor(private router: Router, public service: DeveloperService) { }
 
   delete(): void {
-    this.service.delete(this.developer)
+    this.service.delete(this.developer!)
     this.router.navigateByUrl("list")
   }
 }
