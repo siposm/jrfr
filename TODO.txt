@@ -1,7 +1,26 @@
-TODO
+Házi feladat
 
-- service kiszervezés, refaktorálás
+- todo alkalmazás készítése
+- service alapúra átrefaktorálni a teljes kódot
+
+===============
+
+Emlékeztető
+- @injectable dekorátor
+
+===============
+
+Teendők
 - stat komp
+- on init
 - curr pipe
 - api
-- egyebek
+    - elmélet
+    - stateful / stateless
+    - új json -> list, edit, create frissítése
+- statisztika alatt skillek listázása
+- modal ablak fejlesztői adatok megjelenítése
+- skill CRUD
+- sötét mód
+- login / logout
+- skill törlés token alapon
