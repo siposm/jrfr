@@ -33,16 +33,39 @@ export class DeveloperService {
     return this.developers.find(x => x.id === id)
   }
 
-  read(): void {
+  private read(): void {
     let jsonArray = JSON.parse(localStorage.getItem(this.dbString) ?? "[]")
     this.developers = Object.values(jsonArray).map(x => Object.assign(new Developer(), x))
   }
 
-  save(): void {
+  private save(): void {
     localStorage.setItem(this.dbString, JSON.stringify(this.developers))
   }
 
-  seed(): void {
+  // averageSalary(): number {
+  //   let sum = this.developers.map(x => x.salary!).reduce((a, b) => a + b)
+  //   let avg = sum / this.developers.length
+  //   this.avgSalary = avg
+  //   return Math.round(avg)
+  // }
+
+  // oldestDeveloper(): Developer {
+  //   return this.developers.reduce((a,b) => a.age! < b.age! ? b : a)
+  // }
+
+  // highestEarning(): Developer {
+  //   return this.developers.reduce((a,b) => a.salary! < b.salary! ? b : a)
+  // }
+
+  // lowestEarning(): Developer {
+  //   return this.developers.reduce((a,b) => a.salary! < b.salary! ? a : b)
+  // }
+
+  // mostSkilled(): Developer {
+  //   return [...this.developers].sort((a,b) => b.skills.length - a.skills.length)[0]
+  // }
+
+  private seed(): void {
     let d = new Developer()
     d.name = "Gipsz Jakab"
     d.salary = 3450000
