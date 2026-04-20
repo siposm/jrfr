@@ -8,6 +8,7 @@ export class DeveloperService {
 
   dbString: string = "dev_DB"
   developers: Developer[] = []
+  avgSalary: number = 0
 
   constructor() {
     this.read()
@@ -42,28 +43,32 @@ export class DeveloperService {
     localStorage.setItem(this.dbString, JSON.stringify(this.developers))
   }
 
-  // averageSalary(): number {
-  //   let sum = this.developers.map(x => x.salary!).reduce((a, b) => a + b)
-  //   let avg = sum / this.developers.length
-  //   this.avgSalary = avg
-  //   return Math.round(avg)
-  // }
+  // =======================================
+  // Statistics
+  // =======================================
 
-  // oldestDeveloper(): Developer {
-  //   return this.developers.reduce((a,b) => a.age! < b.age! ? b : a)
-  // }
+  averageSalary(): number {
+    let sum = this.developers.map(x => x.salary!).reduce((a, b) => a + b)
+    let avg = sum / this.developers.length
+    this.avgSalary = avg
+    return Math.round(avg)
+  }
 
-  // highestEarning(): Developer {
-  //   return this.developers.reduce((a,b) => a.salary! < b.salary! ? b : a)
-  // }
+  oldestDeveloper(): Developer {
+    return this.developers.reduce((a,b) => a.age! < b.age! ? b : a)
+  }
 
-  // lowestEarning(): Developer {
-  //   return this.developers.reduce((a,b) => a.salary! < b.salary! ? a : b)
-  // }
+  highestEarning(): Developer {
+    return this.developers.reduce((a,b) => a.salary! < b.salary! ? b : a)
+  }
 
-  // mostSkilled(): Developer {
-  //   return [...this.developers].sort((a,b) => b.skills.length - a.skills.length)[0]
-  // }
+  lowestEarning(): Developer {
+    return this.developers.reduce((a,b) => a.salary! < b.salary! ? a : b)
+  }
+
+  mostSkilled(): Developer {
+    return [...this.developers].sort((a,b) => b.skills.length - a.skills.length)[0]
+  }
 
   private seed(): void {
     let d = new Developer()

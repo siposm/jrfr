@@ -8,11 +8,11 @@
     <h5>Statistics</h5>
     <hr>
     <ul>
-        <li>Average salary: <strong>{{ averageSalary() }} HUF</strong></li>
-        <li>Oldest developer: <strong>{{ oldestDeveloper().name }}</strong></li>
-        <li>Highest earning developer: <strong>{{ highestEarning().name }}</strong></li>
-        <li>Lowest earning developer: <strong>{{ lowestEarning().name }}</strong></li>
-        <li>Most skilled developer: <strong>{{ mostSkilled().name }}</strong></li>
+        <li>Average salary: <strong>{{ service.averageSalary() }} HUF</strong></li>
+        <li>Oldest developer: <strong>{{ service.oldestDeveloper().name }}</strong></li>
+        <li>Highest earning developer: <strong>{{ service.highestEarning().name }}</strong></li>
+        <li>Lowest earning developer: <strong>{{ service.lowestEarning().name }}</strong></li>
+        <li>Most skilled developer: <strong>{{ service.mostSkilled().name }}</strong></li>
     </ul>
 </div>
 
@@ -34,7 +34,7 @@
     <tbody>
         <tr *ngFor="let dev of service.developers; index as i">
             <td>
-                <span class="badge rounded-pill" [ngClass]="dev.salary! > avgSalary ? 'bg-success' : 'bg-danger'">
+                <span class="badge rounded-pill" [ngClass]="dev.salary! > getAvgSalaryFromService ? 'bg-success' : 'bg-danger'">
                     {{ i+1 }}
                 </span>
             </td>
