@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Developer } from '../developer';
 import { DeveloperService } from '../developer.service';
+import { StatisticsService } from '../statistics.service';
 
 @Component({
   selector: 'app-list',
@@ -10,10 +11,11 @@ import { DeveloperService } from '../developer.service';
 export class ListComponent {
   devId: string = ""
 
-  constructor(public service: DeveloperService) { }
+  constructor(public service: DeveloperService,
+    public statService: StatisticsService) { }
 
   get getAvgSalaryFromService() {
-    return this.service.avgSalary
+    return this.statService.avgSalary
   }
 
   alertId(developer: Developer): void {
