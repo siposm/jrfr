@@ -6,6 +6,7 @@ import { CreateComponent } from './create/create.component';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
 import { Edit2Component } from './edit2/edit2.component';
+import { StatsComponent } from './stats/stats.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "delete", component: DeleteComponent },
   { path: "edit", component: EditComponent },
   { path: "edit2/:id", component: Edit2Component },
+  { path: "stats", component: StatsComponent },
   { path: "**", redirectTo: "homepage", pathMatch: "full" },
 ];
 
