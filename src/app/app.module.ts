@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
 import { Edit2Component } from './edit2/edit2.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Edit2Component } from './edit2/edit2.component';
     CreateComponent,
     DeleteComponent,
     EditComponent,
-    Edit2Component
+    Edit2Component,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

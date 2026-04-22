@@ -9,7 +9,6 @@ export class StatisticsService {
 
   dbString: string = "dev_DB"
   developers: Developer[] = []
-  avgSalary: number = 0
 
   constructor(private service: DeveloperService) {
     this.developers = service.developers
@@ -18,7 +17,6 @@ export class StatisticsService {
   averageSalary(): number {
     let sum = this.developers.map(x => x.salary!).reduce((a, b) => a + b)
     let avg = sum / this.developers.length
-    this.avgSalary = avg
     return Math.round(avg)
   }
 

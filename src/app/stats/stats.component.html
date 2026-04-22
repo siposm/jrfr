@@ -1,0 +1,11 @@
+<div class="alert alert-info">
+    <h5>Statistics</h5>
+    <hr>
+    <ul>
+        <li>Average salary: <strong>{{ statService.averageSalary() }} HUF</strong></li>
+        <li>Oldest developer: <strong>{{ statService.oldestDeveloper().name }}</strong></li>
+        <li>Highest earning developer: <strong>{{ statService.highestEarning().name }}</strong></li>
+        <li>Lowest earning developer: <strong>{{ statService.lowestEarning().name }}</strong></li>
+        <li>Most skilled developer: <strong>{{ statService.mostSkilled().name }}</strong></li>
+    </ul>
+</div>

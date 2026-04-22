@@ -11,11 +11,10 @@ import { StatisticsService } from '../statistics.service';
 export class ListComponent {
   devId: string = ""
 
-  constructor(public service: DeveloperService,
-    public statService: StatisticsService) { }
+  constructor(public service: DeveloperService, public statService: StatisticsService) { }
 
   get getAvgSalaryFromService() {
-    return this.statService.avgSalary
+    return this.statService.averageSalary()
   }
 
   alertId(developer: Developer): void {
