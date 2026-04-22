@@ -1,16 +1,16 @@
 <h4>Edit developer</h4>
-<select [(ngModel)]="developer" class="form-select mb-2">
+<select [(ngModel)]="developerForSelect" (change)="trigger()" class="form-select mb-2">
     <option [ngValue]="null" disabled selected>Select...</option>
     <option [ngValue]="dev" *ngFor="let dev of developers">{{ dev.name }}</option>
 </select>
 
-<div *ngIf="developer !== null">
+<div *ngIf="developerForSelect !== null">
     <hr>
-    <input class="form-control mb-2" [(ngModel)]="developer.id" disabled placeholder="Id..." type="text">
-    <input class="form-control mb-2" [(ngModel)]="developer.name" placeholder="Name..." type="text">
-    <input class="form-control mb-2" [(ngModel)]="developer.job" placeholder="Job..." type="text">
-    <input class="form-control mb-2" [(ngModel)]="developer.age" placeholder="Age..." type="number">
-    <input class="form-control mb-2" [(ngModel)]="developer.salary" placeholder="Salary..." type="number">
-    <input class="form-control mb-2" [(ngModel)]="developer.skillsAsString" placeholder="Skills (one,two,three)..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developerToEdit.id" disabled placeholder="Id..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developerToEdit.name" placeholder="Name..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developerToEdit.job" placeholder="Job..." type="text">
+    <input class="form-control mb-2" [(ngModel)]="developerToEdit.age" placeholder="Age..." type="number">
+    <input class="form-control mb-2" [(ngModel)]="developerToEdit.salary" placeholder="Salary..." type="number">
+    <input class="form-control mb-2" [(ngModel)]="developerToEdit.skillsAsString" placeholder="Skills (one,two,three)..." type="text">
     <button class="btn btn-sm btn-warning" (click)="update()">Update developer</button>
 </div>

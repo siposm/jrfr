@@ -9,7 +9,8 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './edit.component.css'
 })
 export class EditComponent {
-  developer: Developer | null = null
+  developerForSelect: Developer | null = null
+  developerToEdit: Developer = new Developer()
   developers: Developer[] = []
 
   constructor(private router: Router, public service: DeveloperService) {
@@ -17,7 +18,11 @@ export class EditComponent {
   }
 
   update(): void {
-    this.service.update(this.developer!)
+    this.service.update(this.developerToEdit!)
     this.router.navigateByUrl("list")
+  }
+
+  trigger(): void {
+    this.developerToEdit = Object.assign(new Developer(), this.developerForSelect!)
   }
 }
