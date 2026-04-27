@@ -13,11 +13,13 @@ Emlékeztető
 Teendők
 - stat komp
 - on init
-- curr pipe
 - api
     - elmélet
+    - CORS
     - stateful / stateless
     - új json -> list, edit, create frissítése
+    - service apik hozzáadása
+- curr pipe
 - statisztika alatt skillek listázása
 - modal ablak fejlesztői adatok megjelenítése
 - skill CRUD
