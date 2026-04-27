@@ -16,17 +16,6 @@ export class ListComponent {
     public statService: StatisticsService,
     private http: HttpClient) { }
 
-  demoApiCall(): void {
-    this.http.get<Developer[]>("https://api.siposm.hu/getDevelopers").subscribe(data => {
-      let devs = []
-      devs = data.map(dev => Object.assign(new Developer(), dev))
-      // console.log(devs[0].email)
-      // TODO: developer class kiegészítése
-      // TODO: service-be kiszervezni
-      console.log(devs)
-    })
-  }
-
   get getAvgSalaryFromService() {
     return this.statService.averageSalary()
   }

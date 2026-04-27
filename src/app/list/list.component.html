@@ -4,8 +4,6 @@
     {{ devId }}
 </div>
 
-<button (click)="demoApiCall()">Demo API call</button>
-
 <app-stats></app-stats>
 
 <h4>List developers</h4>
@@ -15,7 +13,9 @@
         <tr>
             <th>#</th>
             <th>Id</th>
+            <th></th>
             <th>Name</th>
+            <th>Email</th>
             <th>Job</th>
             <th>Age</th>
             <th>Salary</th>
@@ -24,14 +24,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dev of service.developers; index as i">
+        <tr *ngFor="let dev of service.developers; index as i" class="align-middle">
             <td>
-                <span class="badge rounded-pill" [ngClass]="dev.salary! > getAvgSalaryFromService ? 'bg-success' : 'bg-danger'">
+                <span class="badge rounded-pill ms-2" [ngClass]="dev.salary! > getAvgSalaryFromService ? 'bg-success' : 'bg-danger'">
                     {{ i+1 }}
                 </span>
             </td>
             <td (click)="alertId(dev)" class="ps-3">{{ dev.getShortId() }}</td>
+            <td><img src="{{dev.image}}" alt="profile_img" height="40" class="rounded-circle"></td>
             <td>{{ dev.name }}</td>
+            <td><a href="mailto:{{dev.email}}">{{ dev.email }}</a></td>
             <td>{{ dev.job }}</td>
             <td>{{ dev.age }}</td>
             <td>{{ dev.getFormattedSalary() }}</td>

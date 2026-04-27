@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
 import { StatisticsService } from './statistics.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,26 @@ export class DeveloperService {
   developers: Developer[] = []
   avgSalary: number = 0
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.read()
   }
 
   create(developer: Developer): void {
+    this.http.post("https://api.siposm.hu/createDeveloper", developer).subscribe({
+      next: (response) => {
+        console.log("::SUCCESS::")
+        console.log("Create request result: ", response)
+        // this.read() // újra letöltök minden elemet, amiben már a FRISSEN létrehozott objektum IS benne lesz
+        this.developers.push(developer) // lokálisan IS hozzáadom a létrehozni kívánt elemet a tömbömhöz
+      },
+      error: (error) => {
+        console.log("::ERROR::")
+        console.log("Error message: ", error)
+      }
+    })
+  }
+
+  createLocalStorage(developer: Developer): void {
     this.developers.push(developer)
     this.save()
   }
@@ -35,7 +51,16 @@ export class DeveloperService {
     return this.developers.find(x => x.id === id)
   }
 
-  private read(): void {
+  read(): void {
+    this.http.get<Developer[]>("https://api.siposm.hu/getDevelopers").subscribe(data => {
+      this.developers = data.map(dev => Object.assign(new Developer(), dev))
+      // data.map(dev => {
+      //   this.developers.push(Object.assign(new Developer(), dev))
+      // })
+    })
+  }
+
+  private readLocalStorage(): void {
     let jsonArray = JSON.parse(localStorage.getItem(this.dbString) ?? "[]")
     this.developers = Object.values(jsonArray).map(x => Object.assign(new Developer(), x))
   }

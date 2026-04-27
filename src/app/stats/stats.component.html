@@ -1,11 +1,17 @@
-<div class="alert alert-info">
+<div class="alert alert-info" *ngIf="statService.developers.length > 0; else loadingOrEmpty">
     <h5>Statistics</h5>
     <hr>
     <ul>
         <li>Average salary: <strong>{{ statService.averageSalary() }} HUF</strong></li>
-        <li>Oldest developer: <strong>{{ statService.oldestDeveloper().name }}</strong></li>
-        <li>Highest earning developer: <strong>{{ statService.highestEarning().name }}</strong></li>
-        <li>Lowest earning developer: <strong>{{ statService.lowestEarning().name }}</strong></li>
-        <li>Most skilled developer: <strong>{{ statService.mostSkilled().name }}</strong></li>
+        <li>Oldest developer: <strong>{{ statService.oldestDeveloper()?.name || "Nincs adat" }}</strong></li>
+        <li>Highest earning developer: <strong>{{ statService.highestEarning()?.name || "Nincs adat" }}</strong></li>
+        <li>Lowest earning developer: <strong>{{ statService.lowestEarning()?.name || "Nincs adat" }}</strong></li>
+        <li>Most skilled developer: <strong>{{ statService.mostSkilled()?.name || "Nincs adat" }}</strong></li>
     </ul>
 </div>
+
+<ng-template #loadingOrEmpty>
+    <div class="alert alert-warning">
+        No developer data loaded.
+    </div>
+</ng-template>
