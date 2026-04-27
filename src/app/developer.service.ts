@@ -40,19 +40,36 @@ export class DeveloperService {
     //   }
     // })
 
-    this.http.delete("https://api.siposm.hu/deleteDeveloper", { body: { id: developer.id }})
-    .subscribe({
+    this.http.delete("https://api.siposm.hu/deleteDeveloper", { body: { id: developer.id } })
+      .subscribe({
+        next: (response) => {
+          console.log("::SUCCESS::")
+          console.log(response)
+          // this.read()
+          this.developers = this.developers.filter(x => x.id !== developer.id)
+        },
+        error: (error) => {
+          console.log("::ERROR::")
+          console.log(error)
+        }
+      })
+  }
+
+  update(developer: Developer): void {
+    this.http.put("https://api.siposm.hu/updateDeveloper", developer).subscribe({
       next: (response) => {
         console.log("::SUCCESS::")
         console.log(response)
         // this.read()
-        this.developers = this.developers.filter(x => x.id !== developer.id)
+        let index = this.developers.findIndex(x => x.id === developer.id)
+        this.developers[index] = developer
       },
       error: (error) => {
         console.log("::ERROR::")
         console.log(error)
       }
-    })
+      }
+    )
   }
 
   createLocalStorage(developer: Developer): void {
@@ -65,7 +82,7 @@ export class DeveloperService {
     this.save()
   }
 
-  update(developer: Developer): void {
+  updateLocalStorage(developer: Developer): void {
     let idx = this.developers.findIndex(x => x.id === developer.id)
     this.developers[idx] = developer
     this.save()
