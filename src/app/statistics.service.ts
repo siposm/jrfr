@@ -8,7 +8,6 @@ import { DeveloperService } from './developer.service';
 export class StatisticsService {
 
   dbString: string = "dev_DB"
-  // developers: Developer[] = []
 
   constructor(private service: DeveloperService) { }
 
