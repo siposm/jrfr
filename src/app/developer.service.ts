@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -30,12 +30,37 @@ export class DeveloperService {
     })
   }
 
+  delete(developer: Developer): void {
+    // this.http.delete("https://api.siposm.hu/deleteDeveloper/" + developer.id) // nem működik!
+
+    // this.http.delete("https://api.siposm.hu/deleteDeveloper", {
+    //   headers: new HttpHeaders({"Content-Type": "application/json"}),
+    //   body: {
+    //     id: developer.id
+    //   }
+    // })
+
+    this.http.delete("https://api.siposm.hu/deleteDeveloper", { body: { id: developer.id }})
+    .subscribe({
+      next: (response) => {
+        console.log("::SUCCESS::")
+        console.log(response)
+        // this.read()
+        this.developers = this.developers.filter(x => x.id !== developer.id)
+      },
+      error: (error) => {
+        console.log("::ERROR::")
+        console.log(error)
+      }
+    })
+  }
+
   createLocalStorage(developer: Developer): void {
     this.developers.push(developer)
     this.save()
   }
 
-  delete(developer: Developer): void {
+  deleteLocalStorage(developer: Developer): void {
     this.developers = this.developers.filter(x => x.id !== developer.id)
     this.save()
   }
