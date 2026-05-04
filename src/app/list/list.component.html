@@ -19,7 +19,7 @@
             <th>Job</th>
             <th>Age</th>
             <th>Salary</th>
-            <th>Skills</th>
+            <!-- <th>Skills</th> -->
             <th>Actions</th>
         </tr>
     </thead>
@@ -39,10 +39,10 @@
             <td>{{ dev.age }}</td>
             <!-- <td>{{ dev.getFormattedSalary() }}</td> -->
             <td>{{ dev.salary | currency: 'HUF':'symbol':'1.0-0':'hu-HU' }}</td>
-            <td>
+            <!-- <td>
                 ({{ dev.skills.length }})
                 {{ dev.getSkillsFormatted() }}
-            </td>
+            </td> -->
             <td>
                 <button class="btn btn-sm btn-success me-1"
                     data-bs-toggle="modal"
