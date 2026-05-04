@@ -37,7 +37,8 @@
             <!-- <td><a href="mailto:{{dev.email}}">{{ dev.email }}</a></td> -->
             <td>{{ dev.job }}</td>
             <td>{{ dev.age }}</td>
-            <td>{{ dev.getFormattedSalary() }}</td>
+            <!-- <td>{{ dev.getFormattedSalary() }}</td> -->
+            <td>{{ dev.salary | currency: 'HUF':'symbol':'1.0-0':'hu-HU' }}</td>
             <td>
                 ({{ dev.skills.length }})
                 {{ dev.getSkillsFormatted() }}

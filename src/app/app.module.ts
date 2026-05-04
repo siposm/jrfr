@@ -15,6 +15,10 @@ import { Edit2Component } from './edit2/edit2.component';
 import { StatsComponent } from './stats/stats.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import localeHu from '@angular/common/locales/hu';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeHu)
+
 @NgModule({
   declarations: [
     AppComponent,

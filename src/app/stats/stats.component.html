@@ -2,7 +2,7 @@
     <h5>Statistics</h5>
     <hr>
     <ul>
-        <li>Average salary: <strong>{{ statService.averageSalary() }} HUF</strong></li>
+        <li>Average salary: <strong>{{ statService.averageSalary() | currency: 'HUF':'symbol':'1.0-0':'hu-HU' }}</strong></li>
         <li>Oldest developer: <strong>{{ statService.oldestDeveloper()?.name || "Nincs adat" }}</strong></li>
         <li>Highest earning developer: <strong>{{ statService.highestEarning()?.name || "Nincs adat" }}</strong></li>
         <li>Lowest earning developer: <strong>{{ statService.lowestEarning()?.name || "Nincs adat" }}</strong></li>
