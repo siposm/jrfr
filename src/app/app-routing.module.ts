@@ -7,6 +7,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
 import { Edit2Component } from './edit2/edit2.component';
 import { StatsComponent } from './stats/stats.component';
+import { SkillsComponent } from './skills/skills.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "edit", component: EditComponent },
   { path: "edit2/:id", component: Edit2Component },
   { path: "stats", component: StatsComponent },
+  { path: "skills", component: SkillsComponent },
   { path: "**", redirectTo: "homepage", pathMatch: "full" },
 ];
 

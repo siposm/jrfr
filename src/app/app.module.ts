@@ -14,6 +14,7 @@ import { EditComponent } from './edit/edit.component';
 import { Edit2Component } from './edit2/edit2.component';
 import { StatsComponent } from './stats/stats.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SkillsComponent } from './skills/skills.component';
 
 import localeHu from '@angular/common/locales/hu';
 import { registerLocaleData } from '@angular/common';
@@ -30,7 +31,8 @@ registerLocaleData(localeHu)
     DeleteComponent,
     EditComponent,
     Edit2Component,
-    StatsComponent
+    StatsComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

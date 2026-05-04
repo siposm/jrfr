@@ -1,0 +1,13 @@
+.card {
+    float: left;
+    height: 400px;
+}
+
+img {
+    width: 50px;
+    margin: 0 auto;
+}
+
+textarea {
+    min-height: 150px;
+}
