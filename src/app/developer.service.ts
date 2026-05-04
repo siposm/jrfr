@@ -30,6 +30,32 @@ export class DeveloperService {
     })
   }
 
+  read(): void {
+    this.http.get<Developer[]>("https://api.siposm.hu/getDevelopers").subscribe(data => {
+      this.developers = data.map(dev => Object.assign(new Developer(), dev))
+      // data.map(dev => {
+      //   this.developers.push(Object.assign(new Developer(), dev))
+      // })
+    })
+  }
+
+  update(developer: Developer): void {
+    this.http.put("https://api.siposm.hu/updateDeveloper", developer).subscribe({
+      next: (response) => {
+        console.log("::SUCCESS::")
+        console.log(response)
+        // this.read()
+        let index = this.developers.findIndex(x => x.id === developer.id)
+        this.developers[index] = developer
+      },
+      error: (error) => {
+        console.log("::ERROR::")
+        console.log(error)
+      }
+      }
+    )
+  }
+
   delete(developer: Developer): void {
     // this.http.delete("https://api.siposm.hu/deleteDeveloper/" + developer.id) // nem működik!
 
@@ -55,23 +81,6 @@ export class DeveloperService {
       })
   }
 
-  update(developer: Developer): void {
-    this.http.put("https://api.siposm.hu/updateDeveloper", developer).subscribe({
-      next: (response) => {
-        console.log("::SUCCESS::")
-        console.log(response)
-        // this.read()
-        let index = this.developers.findIndex(x => x.id === developer.id)
-        this.developers[index] = developer
-      },
-      error: (error) => {
-        console.log("::ERROR::")
-        console.log(error)
-      }
-      }
-    )
-  }
-
   createLocalStorage(developer: Developer): void {
     this.developers.push(developer)
     this.save()
@@ -92,14 +101,7 @@ export class DeveloperService {
     return this.developers.find(x => x.id === id)
   }
 
-  read(): void {
-    this.http.get<Developer[]>("https://api.siposm.hu/getDevelopers").subscribe(data => {
-      this.developers = data.map(dev => Object.assign(new Developer(), dev))
-      // data.map(dev => {
-      //   this.developers.push(Object.assign(new Developer(), dev))
-      // })
-    })
-  }
+
 
   private readLocalStorage(): void {
     let jsonArray = JSON.parse(localStorage.getItem(this.dbString) ?? "[]")

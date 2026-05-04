@@ -8,6 +8,12 @@
         <li>Lowest earning developer: <strong>{{ statService.lowestEarning()?.name || "Nincs adat" }}</strong></li>
         <li>Most skilled developer: <strong>{{ statService.mostSkilled()?.name || "Nincs adat" }}</strong></li>
     </ul>
+    <hr>
+    <div>
+        <span *ngFor="let skill of statService.getAllSkills()" class="badge text-bg-light me-2">
+            {{ skill }}
+        </span>
+</div>
 </div>
 
 <ng-template #loadingOrEmpty>

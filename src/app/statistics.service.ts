@@ -15,6 +15,10 @@ export class StatisticsService {
     return this.service.developers
   }
 
+  getAllSkills(): string[] {
+    return Array.from(new Set(this.developers.map(x => x.skills).flat().sort()))
+  }
+
   averageSalary(): number {
     if (this.developers.length === 0) return 0
 
