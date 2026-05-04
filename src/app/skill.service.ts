@@ -7,6 +7,7 @@ import { Skill } from './skill';
 })
 export class SkillService {
 
+  apiUrl: string = "https://api.siposm.hu/skill"
   skills: Skill[] = []
   skillToEdit: Skill = new Skill()
   skillToCreate: Skill = new Skill()
@@ -16,7 +17,7 @@ export class SkillService {
   }
 
   create(): void {
-    this.http.post("https://api.siposm.hu/skill", this.skillToCreate).subscribe({
+    this.http.post(this.apiUrl, this.skillToCreate).subscribe({
       next: (response) => {
         console.log(response)
 
@@ -35,7 +36,7 @@ export class SkillService {
   }
 
   update(): void {
-    this.http.put("https://api.siposm.hu/skill", this.skillToEdit).subscribe({
+    this.http.put(this.apiUrl, this.skillToEdit).subscribe({
       next: (response) => {
         console.log(response)
         this.read()
@@ -51,7 +52,7 @@ export class SkillService {
   }
 
   private read(): void {
-    this.http.get<Skill[]>("https://api.siposm.hu/skill").subscribe(
+    this.http.get<Skill[]>(this.apiUrl).subscribe(
       data => this.skills = data.map(skill => Object.assign(new Skill(), skill))
     )
   }

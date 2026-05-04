@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class DeveloperService {
 
   dbString: string = "dev_DB"
+  apiBaseUrl: string = "https://api.siposm.hu/"
   developers: Developer[] = []
   avgSalary: number = 0
 
@@ -16,7 +17,7 @@ export class DeveloperService {
   }
 
   create(developer: Developer): void {
-    this.http.post("https://api.siposm.hu/createDeveloper", developer).subscribe({
+    this.http.post(this.apiBaseUrl + "createDeveloper", developer).subscribe({
       next: (response) => {
         console.log("::SUCCESS::")
         console.log("Create request result: ", response)
@@ -31,7 +32,7 @@ export class DeveloperService {
   }
 
   read(): void {
-    this.http.get<Developer[]>("https://api.siposm.hu/getDevelopers").subscribe(data => {
+    this.http.get<Developer[]>(this.apiBaseUrl + "getDevelopers").subscribe(data => {
       this.developers = data.map(dev => Object.assign(new Developer(), dev))
       // data.map(dev => {
       //   this.developers.push(Object.assign(new Developer(), dev))
@@ -40,7 +41,7 @@ export class DeveloperService {
   }
 
   update(developer: Developer): void {
-    this.http.put("https://api.siposm.hu/updateDeveloper", developer).subscribe({
+    this.http.put(this.apiBaseUrl + "updateDeveloper", developer).subscribe({
       next: (response) => {
         console.log("::SUCCESS::")
         console.log(response)
@@ -57,16 +58,16 @@ export class DeveloperService {
   }
 
   delete(developer: Developer): void {
-    // this.http.delete("https://api.siposm.hu/deleteDeveloper/" + developer.id) // nem működik!
+    // this.http.delete(this.apiBaseUrl + "deleteDeveloper/" + developer.id) // nem működik!
 
-    // this.http.delete("https://api.siposm.hu/deleteDeveloper", {
+    // this.http.delete(this.apiBaseUrl + "deleteDeveloper", {
     //   headers: new HttpHeaders({"Content-Type": "application/json"}),
     //   body: {
     //     id: developer.id
     //   }
     // })
 
-    this.http.delete("https://api.siposm.hu/deleteDeveloper", { body: { id: developer.id } })
+    this.http.delete(this.apiBaseUrl + "deleteDeveloper", { body: { id: developer.id } })
       .subscribe({
         next: (response) => {
           console.log("::SUCCESS::")
