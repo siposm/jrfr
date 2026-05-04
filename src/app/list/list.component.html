@@ -15,7 +15,7 @@
             <th>Id</th>
             <th></th>
             <th>Name</th>
-            <th>Email</th>
+            <!-- <th>Email</th> -->
             <th>Job</th>
             <th>Age</th>
             <th>Salary</th>
@@ -26,14 +26,15 @@
     <tbody>
         <tr *ngFor="let dev of service.developers; index as i" class="align-middle">
             <td>
-                <span class="badge rounded-pill ms-2" [ngClass]="dev.salary! > getAvgSalaryFromService ? 'bg-success' : 'bg-danger'">
+                <span class="badge rounded-pill ms-2"
+                    [ngClass]="dev.salary! > getAvgSalaryFromService ? 'bg-success' : 'bg-danger'">
                     {{ i+1 }}
                 </span>
             </td>
             <td (click)="alertId(dev)" class="ps-3">{{ dev.getShortId() }}</td>
             <td><img src="{{dev.image}}" alt="profile_img" height="40" class="rounded-circle"></td>
             <td>{{ dev.name }}</td>
-            <td><a href="mailto:{{dev.email}}">{{ dev.email }}</a></td>
+            <!-- <td><a href="mailto:{{dev.email}}">{{ dev.email }}</a></td> -->
             <td>{{ dev.job }}</td>
             <td>{{ dev.age }}</td>
             <td>{{ dev.getFormattedSalary() }}</td>
@@ -42,8 +43,42 @@
                 {{ dev.getSkillsFormatted() }}
             </td>
             <td>
-                <a routerLink="/edit2/{{dev.id}}">Edit</a>
+                <button class="btn btn-sm btn-success me-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#developerDataModal"
+                    (click)="showDetails(dev)"
+                >
+                    <i class="bi bi-file-text"></i>
+                </button>
+                <button class="btn btn-sm btn-warning me-1" routerLink="/edit2/{{dev.id}}">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
             </td>
         </tr>
     </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="developerDataModal" tabindex="-1" aria-labelledby="developerDataModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="developerDataModalLabel">Developer detailed view</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-sm table-hover table-bordered">
+                    <tbody>
+                        <tr *ngFor="let item of getObjectKeysAndValues_ENG()">
+                            <th>{{ item.key }}</th>
+                            <td>{{ item.value }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
