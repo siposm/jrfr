@@ -24,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dev of service.developers; index as i" class="align-middle">
+        <tr *ngFor="let dev of filter(devService.developers); index as i" class="align-middle">
             <td>
                 <span class="badge rounded-pill ms-2"
                     [ngClass]="dev.salary! > getAvgSalaryFromService ? 'bg-success' : 'bg-danger'">

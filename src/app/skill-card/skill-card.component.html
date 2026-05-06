@@ -4,6 +4,13 @@
     <div class="card-body">
         <h5 class="card-title">{{ skill.name }}</h5>
         <p class="card-text">{{ skill.description }}</p>
+        <p class="card-text">
+            <small class="text-body-secondary">
+                <a routerLink="/list/{{skill.name}}">
+                    Used by {{ countDevsForSpecificSkill() }} devs.
+                </a>
+            </small>
+        </p>
     </div>
     <div class="card-footer text-body-secondary">
         <button class="btn btn-sm btn-warning" (click)="skillService.loadForEdit(skill)" data-bs-toggle="modal" data-bs-target="#skillEditModal">

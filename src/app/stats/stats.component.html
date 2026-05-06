@@ -10,7 +10,11 @@
     </ul>
     <hr>
     <div>
-        <span *ngFor="let skill of statService.getAllSkills()" class="badge text-bg-light me-2">
+        <span
+            *ngFor="let skill of statService.getAllSkills()"
+            class="badge text-bg-light me-2 cursor-pointer"
+            routerLink="/list/{{skill}}"
+        >
             {{ skill }}
         </span>
 </div>

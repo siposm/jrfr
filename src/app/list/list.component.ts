@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Developer } from '../developer';
 import { DeveloperService } from '../developer.service';
 import { StatisticsService } from '../statistics.service';
-import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -10,15 +10,31 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './list.component.css'
 })
 export class ListComponent {
+
   devId: string = ""
+  selectedSkill: string = ""
   developerDetails: Developer = new Developer()
 
-  constructor(public service: DeveloperService,
+  constructor(
+    public devService: DeveloperService,
     public statService: StatisticsService,
-    private http: HttpClient) { }
+    private route: ActivatedRoute) {
+    this.route.params.subscribe(param => {
+      if (param["skill"] !== undefined) {
+        this.selectedSkill = param["skill"]
+      }
+    })
+  }
 
   get getAvgSalaryFromService() {
     return this.statService.averageSalary()
+  }
+
+  filter(developers: Developer[]): Developer[] {
+    if (this.selectedSkill !== "") {
+      return this.devService.developers.filter(x => x.skills.includes(this.selectedSkill))
+    }
+    return developers
   }
 
   showDetails(developer: Developer): void {

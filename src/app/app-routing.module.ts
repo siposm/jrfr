@@ -12,6 +12,7 @@ import { SkillsComponent } from './skills/skills.component';
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },
   { path: "list", component: ListComponent },
+  { path: "list/:skill", component: ListComponent },
   { path: "homepage", component: HomepageComponent },
   { path: "create", component: CreateComponent },
   { path: "delete", component: DeleteComponent },
