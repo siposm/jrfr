@@ -6,19 +6,11 @@
 
 <div style="clear: both;"></div>
 
-<div class="card me-3 mb-3" style="width: 18rem;" *ngFor="let skill of skillService.skills">
-    <h5 class="card-header">{{ skill.id | slice:0:8 }}</h5>
-    <img src="https://cdn-icons-png.flaticon.com/512/10438/10438277.png" class="card-img-top mt-3" alt="skill image">
-    <div class="card-body">
-        <h5 class="card-title">{{ skill.name }}</h5>
-        <p class="card-text">{{ skill.description }}</p>
-    </div>
-    <div class="card-footer text-body-secondary">
-        <button class="btn btn-sm btn-warning" (click)="skillService.loadForEdit(skill)" data-bs-toggle="modal" data-bs-target="#skillEditModal">
-            <i class="bi bi-pencil-square"></i>
-        </button>
-    </div>
-</div>
+<app-skill-card
+    *ngFor="let skill of skillService.skills"
+    [skill]="skill"
+></app-skill-card>
+
 
 <div style="clear: both;"></div>
 
