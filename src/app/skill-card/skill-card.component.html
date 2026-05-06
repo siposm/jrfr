@@ -6,7 +6,7 @@
         <p class="card-text">{{ skill.description }}</p>
     </div>
     <div class="card-footer text-body-secondary">
-        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#skillEditModal">
+        <button class="btn btn-sm btn-warning" (click)="skillService.loadForEdit(skill)" data-bs-toggle="modal" data-bs-target="#skillEditModal">
             <i class="bi bi-pencil-square"></i>
         </button>
     </div>

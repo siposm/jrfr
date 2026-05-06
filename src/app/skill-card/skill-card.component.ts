@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Skill } from '../skill';
+import { SkillService } from '../skill.service';
 
 @Component({
   selector: 'app-skill-card',
@@ -8,4 +9,5 @@ import { Skill } from '../skill';
 })
 export class SkillCardComponent {
   @Input() skill: Skill = new Skill()
+  constructor(public skillService: SkillService) { }
 }
