@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Skill } from './skill';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class SkillService {
   skillToEdit: Skill = new Skill()
   skillToCreate: Skill = new Skill()
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.read()
   }
 
@@ -42,6 +43,26 @@ export class SkillService {
         this.read()
       },
       error: (error) => {
+        console.log(error)
+      }
+    })
+  }
+
+  delete(skill: Skill): void {
+    this.http.delete(this.apiUrl, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + this.authService.getToken()
+      }),
+      body: {
+        id: skill.id
+      }
+    }).subscribe({
+      next: response => {
+        console.log(response)
+        this.read()
+      },
+      error: error => {
         console.log(error)
       }
     })

@@ -16,5 +16,8 @@
         <button class="btn btn-sm btn-warning" (click)="skillService.loadForEdit(skill)" data-bs-toggle="modal" data-bs-target="#skillEditModal">
             <i class="bi bi-pencil-square"></i>
         </button>
+        <button class="btn btn-sm btn-danger ms-2" (click)="skillService.delete(skill)" *ngIf="authService.isLoggedIn()">
+            <i class="bi bi-trash"></i>
+        </button>
     </div>
 </div>

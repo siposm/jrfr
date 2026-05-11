@@ -36,7 +36,11 @@ export class AuthService {
 
   removeToken(): void {
     localStorage.removeItem(this.tokenKey)
-    this.router.navigateByUrl("login") // TODO: jó helyen van-e ez???
+    this.router.navigateByUrl("login")
+  }
+
+  getToken(): string {
+    return (localStorage.getItem(this.tokenKey) ?? "")
   }
 
   isLoggedIn(): boolean {
