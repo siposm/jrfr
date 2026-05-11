@@ -1,4 +1,5 @@
 <h4>Delete developer</h4>
+
 <select [(ngModel)]="developer" class="form-select mb-2">
     <option [ngValue]="null" disabled selected>Select...</option>
     <option
@@ -9,6 +10,8 @@
         {{ dev.name }}
     </option>
 </select>
+
 <button class="btn btn-sm btn-danger" (click)="delete()" [disabled]="developer === null">
+    <i class="bi bi-trash"></i>
     Delete developer
 </button>

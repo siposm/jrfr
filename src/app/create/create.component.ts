@@ -9,6 +9,7 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './create.component.css'
 })
 export class CreateComponent {
+
   developer: Developer = new Developer()
 
   constructor(private router: Router, private service: DeveloperService) { }

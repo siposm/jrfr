@@ -7,6 +7,7 @@ import { AuthService } from '../auth.service';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
+
   constructor(public authService: AuthService) {
     this.getTheme()
   }

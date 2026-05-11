@@ -13,7 +13,9 @@ export class SkillCardComponent {
 
   @Input() skill: Skill = new Skill()
 
-  constructor(public skillService: SkillService, private devService: DeveloperService, public authService: AuthService) { }
+  constructor(public skillService: SkillService,
+    private devService: DeveloperService,
+    public authService: AuthService) { }
 
   countDevsForSpecificSkill(): number {
     return this.devService.developers.filter(x => x.skills.includes(this.skill.name)).length

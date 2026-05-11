@@ -9,6 +9,7 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './edit.component.css'
 })
 export class EditComponent {
+
   developerForSelect: Developer | null = null
   developerToEdit: Developer = new Developer()
   developers: Developer[] = []

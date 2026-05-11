@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+
   loginModel: LoginModel = new LoginModel()
 
   constructor(public authService: AuthService) {}

@@ -9,6 +9,7 @@ import { DeveloperService } from '../developer.service';
   styleUrl: './delete.component.css'
 })
 export class DeleteComponent {
+
   developer: Developer | null = null
 
   constructor(private router: Router, public service: DeveloperService) { }

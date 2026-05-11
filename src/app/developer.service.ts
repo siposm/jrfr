@@ -21,8 +21,7 @@ export class DeveloperService {
       next: (response) => {
         console.log("::SUCCESS::")
         console.log("Create request result: ", response)
-        // this.read() // újra letöltök minden elemet, amiben már a FRISSEN létrehozott objektum IS benne lesz
-        this.developers.push(developer) // lokálisan IS hozzáadom a létrehozni kívánt elemet a tömbömhöz
+        this.developers.push(developer)
       },
       error: (error) => {
         console.log("::ERROR::")
@@ -34,9 +33,6 @@ export class DeveloperService {
   read(): void {
     this.http.get<Developer[]>(this.apiBaseUrl + "getDevelopers").subscribe(data => {
       this.developers = data.map(dev => Object.assign(new Developer(), dev))
-      // data.map(dev => {
-      //   this.developers.push(Object.assign(new Developer(), dev))
-      // })
     })
   }
 
@@ -45,7 +41,6 @@ export class DeveloperService {
       next: (response) => {
         console.log("::SUCCESS::")
         console.log(response)
-        // this.read()
         let index = this.developers.findIndex(x => x.id === developer.id)
         this.developers[index] = developer
       },
@@ -53,26 +48,15 @@ export class DeveloperService {
         console.log("::ERROR::")
         console.log(error)
       }
-      }
-    )
+    })
   }
 
   delete(developer: Developer): void {
-    // this.http.delete(this.apiBaseUrl + "deleteDeveloper/" + developer.id) // nem működik!
-
-    // this.http.delete(this.apiBaseUrl + "deleteDeveloper", {
-    //   headers: new HttpHeaders({"Content-Type": "application/json"}),
-    //   body: {
-    //     id: developer.id
-    //   }
-    // })
-
     this.http.delete(this.apiBaseUrl + "deleteDeveloper", { body: { id: developer.id } })
       .subscribe({
         next: (response) => {
           console.log("::SUCCESS::")
           console.log(response)
-          // this.read()
           this.developers = this.developers.filter(x => x.id !== developer.id)
         },
         error: (error) => {
@@ -82,35 +66,8 @@ export class DeveloperService {
       })
   }
 
-  createLocalStorage(developer: Developer): void {
-    this.developers.push(developer)
-    this.save()
-  }
-
-  deleteLocalStorage(developer: Developer): void {
-    this.developers = this.developers.filter(x => x.id !== developer.id)
-    this.save()
-  }
-
-  updateLocalStorage(developer: Developer): void {
-    let idx = this.developers.findIndex(x => x.id === developer.id)
-    this.developers[idx] = developer
-    this.save()
-  }
-
   getById(id: string): Developer | undefined {
     return this.developers.find(x => x.id === id)
-  }
-
-
-
-  private readLocalStorage(): void {
-    let jsonArray = JSON.parse(localStorage.getItem(this.dbString) ?? "[]")
-    this.developers = Object.values(jsonArray).map(x => Object.assign(new Developer(), x))
-  }
-
-  private save(): void {
-    localStorage.setItem(this.dbString, JSON.stringify(this.developers))
   }
 
   private seed(): void {
