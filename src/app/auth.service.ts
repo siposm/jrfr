@@ -3,18 +3,17 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginModel } from './login-model';
 import { TokenModel } from './token-model';
+import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  tokenKey: string = "auth-token"
-
   constructor(private http: HttpClient, private router: Router) { }
 
   login(loginModel: LoginModel): void {
-    this.http.post<TokenModel>("https://api.siposm.hu/login", loginModel).subscribe({
+    this.http.post<TokenModel>(environment.apiLogin, loginModel).subscribe({
       next: response => {
         console.log(response)
         this.saveToken(response.token)
@@ -31,20 +30,20 @@ export class AuthService {
   }
 
   saveToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token)
+    localStorage.setItem(environment.authTokenKey, token)
   }
 
   removeToken(): void {
-    localStorage.removeItem(this.tokenKey)
+    localStorage.removeItem(environment.authTokenKey)
     this.router.navigateByUrl("login")
   }
 
   getToken(): string {
-    return (localStorage.getItem(this.tokenKey) ?? "")
+    return (localStorage.getItem(environment.authTokenKey) ?? "")
   }
 
   isLoggedIn(): boolean {
-    return (localStorage.getItem(this.tokenKey) ?? "").length > 10
+    return (localStorage.getItem(environment.authTokenKey) ?? "").length > 10
   }
 
   canActivate(): boolean {

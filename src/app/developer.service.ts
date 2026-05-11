@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeveloperService {
 
-  dbString: string = "dev_DB"
-  apiBaseUrl: string = "https://api.siposm.hu/"
   developers: Developer[] = []
   avgSalary: number = 0
 
@@ -17,7 +16,7 @@ export class DeveloperService {
   }
 
   create(developer: Developer): void {
-    this.http.post(this.apiBaseUrl + "createDeveloper", developer).subscribe({
+    this.http.post(environment.apiDeveloper.create, developer).subscribe({
       next: (response) => {
         console.log("::SUCCESS::")
         console.log("Create request result: ", response)
@@ -31,13 +30,13 @@ export class DeveloperService {
   }
 
   read(): void {
-    this.http.get<Developer[]>(this.apiBaseUrl + "getDevelopers").subscribe(data => {
+    this.http.get<Developer[]>(environment.apiDeveloper.read).subscribe(data => {
       this.developers = data.map(dev => Object.assign(new Developer(), dev))
     })
   }
 
   update(developer: Developer): void {
-    this.http.put(this.apiBaseUrl + "updateDeveloper", developer).subscribe({
+    this.http.put(environment.apiDeveloper.update, developer).subscribe({
       next: (response) => {
         console.log("::SUCCESS::")
         console.log(response)
@@ -52,7 +51,7 @@ export class DeveloperService {
   }
 
   delete(developer: Developer): void {
-    this.http.delete(this.apiBaseUrl + "deleteDeveloper", { body: { id: developer.id } })
+    this.http.delete(environment.apiDeveloper.delete, { body: { id: developer.id } })
       .subscribe({
         next: (response) => {
           console.log("::SUCCESS::")
