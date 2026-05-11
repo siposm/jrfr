@@ -21,13 +21,7 @@ export class SkillService {
     this.http.post(this.apiUrl, this.skillToCreate).subscribe({
       next: (response) => {
         console.log(response)
-
         this.read()
-
-        // a backend-től megkapott objektum alapján frissíteni kell az itteni elemet
-        // this.skillToCreate.id = (response as any).skill.id
-        // this.skills.push(this.skillToCreate)
-
         this.skillToCreate = new Skill()
       },
       error: (error) => {

@@ -11,16 +11,10 @@ export class Developer {
     skills: string[] = []
 
     public get skillsAsString(): string {
-        // olvasás
-        // bemenet: ["a","b","c"]
-        // kimenet: a,b,c
         return this.skills.join(",")
     }
 
     public set skillsAsString(value: string) {
-        // írás
-        // bemenet: alma,körte,valami
-        // kimenet: ["alma","körte","valami"]
         this.skills = value.split(",")
     }
 
@@ -29,8 +23,6 @@ export class Developer {
     }
 
     getShortId(): string {
-        // ebből:   5e3d8ab3-7c88-41ed-11f1-21c1e6984604
-        // ez lesz: 5e3d8ab3
         return this.id.split('-')[0]
     }
 
