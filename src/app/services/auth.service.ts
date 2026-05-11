@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginModel } from './login-model';
-import { TokenModel } from './token-model';
-import { environment } from '../environments/environment.development';
+import { LoginModel } from '../models/login-model';
+import { TokenModel } from '../models/token-model';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'

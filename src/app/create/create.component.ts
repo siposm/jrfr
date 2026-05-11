@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Developer } from '../developer';
+import { Developer } from '../models/developer';
 import { Router } from '@angular/router';
-import { DeveloperService } from '../developer.service';
+import { DeveloperService } from '../services/developer.service';
 
 @Component({
   selector: 'app-create',

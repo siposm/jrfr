@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Developer } from '../developer';
-import { DeveloperService } from '../developer.service';
-import { StatisticsService } from '../statistics.service';
+import { Developer } from '../models/developer';
+import { DeveloperService } from '../services/developer.service';
+import { StatisticsService } from '../services/statistics.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

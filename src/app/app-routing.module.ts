@@ -9,7 +9,7 @@ import { Edit2Component } from './edit2/edit2.component';
 import { StatsComponent } from './stats/stats.component';
 import { SkillsComponent } from './skills/skills.component';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },

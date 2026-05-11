@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Skill } from '../skill';
-import { SkillService } from '../skill.service';
-import { DeveloperService } from '../developer.service';
-import { AuthService } from '../auth.service';
+import { Skill } from '../models/skill';
+import { SkillService } from '../services/skill.service';
+import { DeveloperService } from '../services/developer.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-skill-card',
