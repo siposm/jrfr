@@ -7,5 +7,22 @@ import { AuthService } from '../auth.service';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+    this.getTheme()
+  }
+
+  getTheme(): void {
+    let currentTheme = localStorage.getItem("theme") ?? ""
+    this.setTheme(currentTheme)
+  }
+
+  setTheme(theme: string): void {
+    localStorage.setItem("theme", theme)
+    document.body.setAttribute("data-bs-theme", theme)
+  }
+
+  themeSwitch(): void {
+    let currentTheme = localStorage.getItem("theme")
+    currentTheme === "light" ? this.setTheme("dark") : this.setTheme("light")
+  }
 }
