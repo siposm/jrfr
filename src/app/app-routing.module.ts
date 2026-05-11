@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent } from './list/list.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { CreateComponent } from './create/create.component';
+import { ListComponent } from './components/list/list.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { CreateComponent } from './components/create/create.component';
 import { DeleteComponent } from './delete/delete.component';
-import { EditComponent } from './edit/edit.component';
-import { Edit2Component } from './edit2/edit2.component';
-import { StatsComponent } from './stats/stats.component';
-import { SkillsComponent } from './skills/skills.component';
-import { LoginComponent } from './login/login.component';
+import { EditComponent } from './components/edit/edit.component';
+import { Edit2Component } from './components/edit2/edit2.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 
 const routes: Routes = [

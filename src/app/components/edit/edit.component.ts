@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Developer } from '../models/developer';
+import { Developer } from '../../models/developer';
 import { Router } from '@angular/router';
-import { DeveloperService } from '../services/developer.service';
+import { DeveloperService } from '../../services/developer.service';
 
 @Component({
   selector: 'app-edit',
