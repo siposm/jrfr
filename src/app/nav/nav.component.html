@@ -21,13 +21,13 @@
                         List developers
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="authService.isLoggedIn()">
                     <a class="nav-link active" routerLink="create">
                         <i class="bi bi-person-plus-fill"></i>
                         Create developer
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="authService.isLoggedIn()">
                     <a class="nav-link active" routerLink="delete">
                         <i class="bi bi-person-x-fill"></i>
                         Delete developer
@@ -49,6 +49,18 @@
                     <a class="nav-link active" routerLink="skills">
                         <i class="bi bi-balloon-heart-fill"></i>
                         Skills
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+                    <a class="nav-link active" routerLink="login">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="authService.isLoggedIn()" style="cursor: pointer;">
+                    <a class="nav-link active" (click)="authService.logout()">
+                        <i class="bi bi-door-closed-fill"></i>
+                        Logout
                     </a>
                 </li>
             </ul>

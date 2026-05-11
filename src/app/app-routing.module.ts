@@ -8,18 +8,21 @@ import { EditComponent } from './edit/edit.component';
 import { Edit2Component } from './edit2/edit2.component';
 import { StatsComponent } from './stats/stats.component';
 import { SkillsComponent } from './skills/skills.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
 
 const routes: Routes = [
   { path: "", redirectTo: "homepage", pathMatch: "full" },
   { path: "list", component: ListComponent },
   { path: "list/:skill", component: ListComponent },
   { path: "homepage", component: HomepageComponent },
-  { path: "create", component: CreateComponent },
-  { path: "delete", component: DeleteComponent },
+  { path: "create", component: CreateComponent, canActivate: [AuthService] },
+  { path: "delete", component: DeleteComponent, canActivate: [AuthService] },
   { path: "edit", component: EditComponent },
   { path: "edit2/:id", component: Edit2Component },
   { path: "stats", component: StatsComponent },
   { path: "skills", component: SkillsComponent },
+  { path: "login", component: LoginComponent },
   { path: "**", redirectTo: "homepage", pathMatch: "full" },
 ];
 

@@ -19,6 +19,7 @@ import { SkillsComponent } from './skills/skills.component';
 import localeHu from '@angular/common/locales/hu';
 import { registerLocaleData } from '@angular/common';
 import { SkillCardComponent } from './skill-card/skill-card.component';
+import { LoginComponent } from './login/login.component';
 registerLocaleData(localeHu)
 
 @NgModule({
@@ -34,7 +35,8 @@ registerLocaleData(localeHu)
     Edit2Component,
     StatsComponent,
     SkillsComponent,
-    SkillCardComponent
+    SkillCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

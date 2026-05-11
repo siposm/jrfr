@@ -1,0 +1,9 @@
+<h4>Login</h4>
+
+<input class="form-control mb-2" type="text" placeholder="Username..." [(ngModel)]="loginModel.username">
+<input class="form-control mb-2" type="password" placeholder="Password..." [(ngModel)]="loginModel.password">
+
+<button class="btn btn-sm btn-success" (click)="authService.login(loginModel)">
+    <i class="bi bi-box-arrow-in-right"></i>
+    Log into the system
+</button>
